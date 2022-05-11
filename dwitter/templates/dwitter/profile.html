@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+    <h1> {{profile.user.username|upper}}'s Dweets </h1>
+    <form method="post">
+        {% csrf_token %}
+        {% if profile in user.profile.follows.all %}
+            <button type="button" class="btn btn-secondary" disabled>Follow</button>
+            <button type="button" class="btn btn-danger" name="unfollow" value="unfollow">Unfollow</button>
+        {% else %}
+            <button type="button" class="btn btn-success" name="follow" value="follow">Follow</button>
+            <button type="button" class="btn btn-secondary" disabled>Unfollow</button>
+        {% endif %}
+    </form>
+
+    {% for dweet in profile.user.dweets.all  %} 
+        {{ dweet.body }}
+        <p class="fw-light"> ({{dweet.created_at}}) </p>
+    {% endfor %}
+
+    <a href="{% url 'dwitter:profile_list' %}">  
+        <button> All profiles </button>
+    </a>
+    <h3>  {{profile.user.username}} follows </h3>
+    <ul> 
+        {% for following in profile.follows.all  %}
+            <li> <a href="{% url 'dwitter:profile' following.id %}">  {{following}} </a> </li>
+        {% endfor %}
+    </ul>
+
+
+    <h3>  {{profile.user.username}} is followed </h3>
+    <ul> 
+        {% for follower in profile.follows.all  %}
+            <li> <a href="{% url 'dwitter:profile' follower.id %}">  {{follower}} </a> </li>
+        {% endfor %}
+    </ul>
+    <a href="#">  </a>
+
+{% endblock content %} 
