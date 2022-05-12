@@ -17,7 +17,7 @@ class SignUpForm(forms.Form):
     first_name = forms.CharField()
     last_name = forms.CharField()
     email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput(), validators=validators.MinLengthValidator(8))
+    password = forms.CharField(widget=forms.PasswordInput(), validators=[validators.MinLengthValidator(8)])
     confirm_password = forms.CharField(widget=forms.PasswordInput())
     gender = forms.ChoiceField(label="F for female, M for male, NB for non binary", widget=forms.RadioSelect, choices=GENDERS)
     # We should use a validator to make sure 
