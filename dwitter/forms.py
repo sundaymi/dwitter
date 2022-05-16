@@ -25,6 +25,10 @@ class SignUpForm(forms.Form):
     phone_number = forms.CharField(label='Phone',required=False)
     about_you = forms.CharField(widget=forms.Textarea(),required=False)
     
+    # class Meta:
+    #     model = Profile
+    
+    
 
 class LoginForm(forms.Form):
     email_login = forms.EmailField()
