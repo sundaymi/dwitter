@@ -8,6 +8,12 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # user1 = User.objects.create_user()
+    #first_name = models.CharField(max_length=50)
+    #last_name = models.CharField(max_length=50)
+    #user_email = models.EmailField()
+    #password = models.CharField()
+    #confirm_password = models.CharField()
+    
     follows = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
 
     def __str__(self) :
