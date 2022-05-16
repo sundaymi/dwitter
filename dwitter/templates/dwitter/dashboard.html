@@ -22,11 +22,11 @@
               </div>
           </div>
 
- {%if user.is authenticated%}         
+ {% comment %}{%if user.is authenticated%}         
     Hi {{user.username}}
 
           <a href="{% url 'logout' %}">Logout</a>
-{% comment %}{% else %}
+{% else %}
            <a href="{% url 'login' %}">Login</a>
 {% endcomment %}
 {% endblock content %}  
