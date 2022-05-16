@@ -13,7 +13,7 @@ class DweetForm(forms.ModelForm):
 
 class SignUpForm(forms.Form):
     GENDERS = (('F','Female'), ('M','Male'),('NB', 'NonBinary'))
-    username = forms.CharField()
+    user = forms.CharField()
     first_name = forms.CharField()
     last_name = forms.CharField()
     email = forms.EmailField()
