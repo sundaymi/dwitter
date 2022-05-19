@@ -21,8 +21,8 @@
     <button type="submit" class="btn btn-info">Sign in</button>
   </form>
 <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">New around here? Sign up</a>
-    <a class="dropdown-item" href="">Forgot password?</a>
+    <a class="dropdown-item" href="{% url 'dwitter:signup' %}">New around here? Sign up</a>
+    <a class="dropdown-item" href="{% url 'dwitter:password_reset_form' %}">Forgot password?</a>
 </div> 
 
 {% endblock content %} 
