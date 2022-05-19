@@ -13,6 +13,7 @@
                 <button class="btn btn-outline-primary">All profiles</button></a>
                 <a href="{% url 'dwitter:profile' request.user.profile.id %}"> 
                 <button class="btn btn-outline-primary">My profile</button></a>
+                
                 <h2>Add a Dweet</h2>
                 <form method="post">
                     {% csrf_token %}

@@ -38,13 +38,18 @@
           <h1>Dwitter</h1>
           <p>Your tiny social network bullt with Django framework </p>
           <div> 
-            {% load crispy_forms_tags %}
-            {% block content %}
-              <form method="get" action="#"> 
-                {{ form|crispy }}
-                <input type="submit" value="Search">
-              </form>
-            {% endblock content %}
+            {% if user.is authenticated %}
+              {% load crispy_forms_tags %}
+              {% block content %}
+                <form method="get" action="#"> 
+                  {{ form|crispy }}
+                  <input type="submit" value="Search">
+                </form>
+              {% endblock content %}
+            {% else %}
+                <button class="btn btn-info">Login</button>
+                <button class="btn btn-info">Sign Up</button>
+            {% endif %}
 
           </div>
       </section>

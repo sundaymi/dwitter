@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %} 
-    <h1> {{profile.user.username|upper}}'s Dweets </h1>
+    <h2> {{profile.user.username|upper}}'s Dweets </h2>
     <form method="post">
         {% csrf_token %}
         {% if profile in user.profile.follows.all %}
