@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %} 
 <form  method="post" action="">
   {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
+    {% comment %} {{form.as_p}} {% endcomment %}
      <div class="form-group">
       <label for="exampleDropdownFormEmail2">Email address</label>
       <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
