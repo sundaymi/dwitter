@@ -38,7 +38,7 @@
           <h1>Dwitter</h1>
           <p>Your tiny social network bullt with Django framework </p>
           <div> 
-            {% if user.is authenticated %}
+            {% if user.is_authenticated %}
               {% load crispy_forms_tags %}
               {% block content %}
                 <form method="get" action="#"> 
