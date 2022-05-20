@@ -50,10 +50,11 @@
                 <button class="btn btn-info">Login</button>
                 <button class="btn btn-info">Sign Up</button>
             {% endif %}
+            
+          {%if user.is authenticated%}
             Hi {{user.username}}
-
             <a href="{% url 'logout' %}">Logout</a>
-  {% else %}
+          {% else %}
              <a href="{% url 'login' %}">Login</a>
           </div>
       </section>
