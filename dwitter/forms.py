@@ -1,6 +1,6 @@
 # import email
 from django import forms
-from . models import Dweet
+from . models import Dweet,Profile
 from django.core import validators
 
 class DweetForm(forms.ModelForm):
@@ -25,8 +25,8 @@ class SignUpForm(forms.Form):
     phone_number = forms.CharField(label='Phone',required=False)
     about_you = forms.CharField(widget=forms.Textarea(),required=False)
     
-    # class Meta:
-    #     model = Profile
+    class Meta:
+        model = Profile()
     
     
 
