@@ -39,26 +39,25 @@ def profile(request,pk):
 
 
 def signup(request):
+    form = SignUpForm(request.POST or None)
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            register = form.save()
-             
-            return "Welcome to Dwitter!"
-        
+            form.save()
+            return "Welcome to Dwitter!"       
     else:
         form = SignUpForm() 
     return render(request, 'dwitter/signup.html', {'form': form})
 
 
 def login(request):
-    # if request.method == 'POST':
-    #     form = LoginForm(request.POST)
-    #     if form.is_valid():
-    #         pass 
-    # else:
-    #     form = LoginForm()
-    return render(request, 'dwitter/login.html', )  #{'form': form}
+    form = LoginForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save() 
+    else:
+        form = LoginForm()
+    return render(request, 'dwitter/login.html', {'form': form})  
 
 
         
