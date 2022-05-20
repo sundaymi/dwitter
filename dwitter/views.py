@@ -42,6 +42,8 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
+            register = form.save()
+             
             return "Welcome to Dwitter!"
         
     else:
