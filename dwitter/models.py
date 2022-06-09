@@ -8,13 +8,13 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # user1 = User.objects.create_user()
-    # first_name = models.CharField(max_length=50,blank=False)
-    # last_name = models.CharField(max_length=50,blank=False)
-    # user_email = models.EmailField(blank=False)
-    # password = models.CharField(max_length=100,blank=False)
-    # confirm_password = models.CharField(max_length=100,blank=False)
-    # phone_number = models.IntegerField(blank=True)
-    # about_you = models.CharField(max_length=240, blank=True)
+    first_name = models.CharField(max_length=50,blank=False)
+    last_name = models.CharField(max_length=50,blank=False)
+    user_email = models.EmailField(blank=False)
+    password = models.CharField(max_length=100,blank=False)
+    confirm_password = models.CharField(max_length=100,blank=False)
+    phone_number = models.IntegerField(blank=True)
+    about_you = models.CharField(max_length=240, blank=True)
     
     follows = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
 
